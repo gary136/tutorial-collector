@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define your beans here -->
+    <!-- alien -> com.example.Demo.Alien -->
+    <!-- <bean id="alien" class="com.example.demo.Alien"> -->
+    <!-- search bean with same field name -->
+    <!-- <bean id="alien" class="com.example.demo.Alien" autowire="byName"> -->
+    <!-- search bean with same field type -->
+    <bean id="alien" class="com.example.demo.Alien" autowire="byType">
+    
+    	<!-- assign values for consturctor -->
+    	<!-- <constructor-arg value="10"></constructor-arg> -->
+    	<!-- assign reference for consturctor -->
+    	<!-- <constructor-arg ref="laptop"></constructor-arg> -->
+    	
+    	<!-- field default value -->
+    	<property name="age" value="10"></property>
+    	<!-- field default reference -->
+    	<!-- <property name="laptop" ref="laptop"></property> -->
+    	<!-- <property name="com" ref="laptop"></property> -->
+    	<!-- <property name="com" ref="desktop"></property> -->
+    	
+    	<!-- use autowired if name is equal to ref -->
+    	<!-- <property name="com" ref="com"></property> -->
+    	<!-- might specify when autowired matches > 1 beans -->
+    	<!-- <property name="com" ref="desktop"></property> -->
+    </bean>    
+    <!-- <bean id="alien" class="com.example.demo.Alien" scope = "prototype"></bean> -->
+	<!-- <bean id="laptop" class="com.example.demo.Laptop"></bean> -->
+	<!-- has to specify primary if autowire="byType" and the number of valid bean > 1 -->
+	<!-- <bean id="com" class="com.example.demo.Laptop"></bean> -->
+	<bean id="com" class="com.example.demo.Laptop" primary="true"></bean>
+	<bean id="desktop" class="com.example.demo.Desktop"></bean>
+	
+</beans>
